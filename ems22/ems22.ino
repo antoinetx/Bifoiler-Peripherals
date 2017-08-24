@@ -38,6 +38,7 @@ void loop() {
   bool s1, s2, lin, inc, dec, parity, msg_parity;
   chip_select();
   for(int i = 0; i < 15; i++){
+    msg_parity = 1;
     clock_tick();
     delayMicroseconds(1);
     bool data = digitalRead(DATA);
