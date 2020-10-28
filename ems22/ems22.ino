@@ -74,10 +74,16 @@ void loop() {
   }
   chip_unselect();
   
-  last_value = absolute_value;
-
-  if(parity == msg_parity)
+  
+  
+  if(parity == msg_parity){
+    last_value = 0xFFFF;
     Serial.println("Err : Incorrect parity.");
+  }
+  else{
+    last_value = absolute_value;
+  }
+  
 
   Serial.print("Actual value is ");
   Serial.print(absolute_value, DEC);
@@ -147,4 +153,3 @@ void receiveEvent(int howMany) {
     }
   }
 }
-
